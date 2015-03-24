@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Neopixel-day-night : Control a Neopixel adressable RGB strip with a potentiometer">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Neopixel-day-night</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jonwaterschoot/Neopixel-day-night">View on GitHub</a>
+
+          <h1 id="project_title">Neopixel-day-night</h1>
+          <h2 id="project_tagline">Control a Neopixel adressable RGB strip with a potentiometer</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jonwaterschoot/Neopixel-day-night/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jonwaterschoot/Neopixel-day-night/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="neopixel-day-through-night-by-turning-a-knob" class="anchor" href="#neopixel-day-through-night-by-turning-a-knob" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neopixel: day through night by turning a knob</h1>
+
+<p>Control a Neopixel addressable RGB strip with a potentiometer (WS2812 LEDs) with an Arduino Uno</p>
+
+<h1>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h1>
+
+<p>On a 120 pixel strip, every pixel has a defined color. Turning a knob will move the position of an array of n pixels that are turned on - the others are switched off.</p>
+
+<p>Purpose of this code is to provide lighting to a diorama of a landscape in a plate.
+The viewer can turn a knob, potentiometer, that changes the direction and color,
+following a night to day to night course.
+More info/images about this artwork on our website <a href="http://jon-ibe.be/landscapeinaplate">http://jon-ibe.be/landscapeinaplate</a></p>
+
+<p><img src="https://raw.githubusercontent.com/jonwaterschoot/Neopixel-day-night/master/colors_layout.jpg" alt="Alt text" title="lighting setup inside diorama"></p>
+
+<h2>
+<a id="the-colors" class="anchor" href="#the-colors" aria-hidden="true"><span class="octicon octicon-link"></span></a>The colors</h2>
+
+<ul>
+<li>The colors are manually listed by mixing the main colors and noting down those values</li>
+<li>Colors are defined 1 to 60 and then backwards again. (hence the 'library' only consists of 60 colors)</li>
+</ul>
+
+<h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<h3>
+<a id="software" class="anchor" href="#software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software</h3>
+
+<p>To run this code you will also need to install the Adafruit Neopixel Library:
+<a href="https://github.com/adafruit/Adafruit_NeoPixel">https://github.com/adafruit/Adafruit_NeoPixel</a></p>
+
+<p>In the Arduino code the global brightness is defined by:</p>
+
+<pre><code>leds.setBrightness(32); // Set global brightness for the whole strip 0-255
+</code></pre>
+
+<p>In other words: pump it up to 255 if you want full power. When breadboarding/prototyping I found it easier to see the colors when they're less bright. In an actual setup, or when diffused you might want to crank them up again.</p>
+
+<h4>
+<a id="to-do" class="anchor" href="#to-do" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Do:</h4>
+
+<p>I was thinking that dimming the outer LEDs of the 11-pixel array would provide an even smoother transition. But so far that hasn't worked yet. And in prototyping for our work, it's not clear yet whether it would make any real difference.</p>
+
+<h3>
+<a id="hardware" class="anchor" href="#hardware" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware</h3>
+
+<p>The hardware setup can be seen on the breadboard image made with Fritzing.
+Remember to adjust the Pin you connect the data input to and number of pixels you have in your setup in the .ino file. </p>
+
+<p>Also, as can be read in the tutorials on the strip (see links below), take care of using the right power for your project. And protect the setup by using a capacitor. Possibly the 5V and the Amps supplied by the USB port might be sufficient because this code only lights up 11 pixels. But powering the full 120 pixels is probably a no go.</p>
+
+<p><img src="https://raw.githubusercontent.com/jonwaterschoot/Neopixel-day-night/master/hardwaresetup_breadboardview.png" alt="Alt text" title="breadboard view hardware"></p>
+
+<hr>
+
+<h2>
+<a id="sources-and-documentation" class="anchor" href="#sources-and-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sources and documentation</h2>
+
+<p>This code is the result of studying the Adafruit and Sparkfun guides on using WS2812 LEDs.
+Adafruit Neopixel Überguide : <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/">https://learn.adafruit.com/adafruit-neopixel-uberguide/</a>
+Sparkfun: <a href="https://learn.sparkfun.com/tutorials/ws2812-breakout-hookup-guide/all">https://learn.sparkfun.com/tutorials/ws2812-breakout-hookup-guide/all</a></p>
+
+<p>I also got great help by the user Grumpy_Mike (Mike Cook) on the Arduino forum who has spent a great deal of time on rewriting and simplifying my code:
+<a href="http://forum.arduino.cc/index.php?topic=301375.0">http://forum.arduino.cc/index.php?topic=301375.0</a>
+He has some valuable tutorials and info about Arduino and electronics on his website <a href="http://www.thebox.myzen.co.uk/">http://www.thebox.myzen.co.uk/</a> </p>
+
+<p>Source of this text: <a href="https://github.com/jonwaterschoot/Neopixel-day-night">https://github.com/jonwaterschoot/Neopixel-day-night</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Neopixel-day-night maintained by <a href="https://github.com/jonwaterschoot">jonwaterschoot</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-15540918-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
