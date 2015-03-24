@@ -14,8 +14,8 @@ More info/images about this artwork on our website http://jon-ibe.be/landscapein
 ![Alt text](https://raw.githubusercontent.com/jonwaterschoot/Neopixel-day-night/master/colors_layout.jpg "lighting setup inside diorama")
 
 ##The colors
-*The colors are manually listed by mixing the main colors and noting down those values
-*Colors are defined 1 to 60 and then backwards again. (hence the 'library' only consists of 60 colors)
+* The colors are manually listed by mixing the main colors and noting down those values
+* Colors are defined 1 to 60 and then backwards again. (hence the 'library' only consists of 60 colors)
 
 ##Setup
 ###Software
