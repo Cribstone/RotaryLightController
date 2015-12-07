@@ -1,17 +1,13 @@
-﻿Neopixel: day through night by turning a knob
+Light Controller Knob 
 =============================================
 
-Control a Neopixel addressable RGB strip with a potentiometer (WS2812 LEDs) with an Arduino Uno
+Code adapted from https://github.com/jonwaterschoot/Neopixel-day-night
+Control RGB light bulbs using a rotary dial with Neopixel ring.
 
 #Description
-On a 120 pixel strip, every pixel has a defined color. Turning a knob will move the position of an array of n pixels that are turned on - the others are switched off.
+Physical controller for RGB home lighting aka MiLight, Lifx, Hue etc...  A thermostat-like knob will display different colors on a Neopixel ring depending on position of potentiometer. When desired color is selected a pushbutton communicates to a home controller via MQTT and the corresponding color change will be reflected in home light bulbs.
 
-Purpose of this code is to provide lighting to a diorama of a landscape in a plate.
-The viewer can turn a knob, potentiometer, that changes the direction and color,
-following a night to day to night course.
-More info/images about this artwork on our website http://jon-ibe.be/landscapeinaplate
-
-![Alt text](https://raw.githubusercontent.com/jonwaterschoot/Neopixel-day-night/master/colors_layout.jpg "lighting setup inside diorama")
+Original Documentation as follows will be edited as project progresses.
 
 ##The colors
 * The colors are manually listed by mixing the main colors and noting down those values
